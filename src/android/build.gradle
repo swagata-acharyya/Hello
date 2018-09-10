@@ -1,0 +1,36 @@
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 10
+        versionName "0.2.0"
+
+        buildConfigField "long", "INITIAL_DELAY", "300L"
+        buildConfigField "long", "SYNC_INTERVAL", "300L"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            // Commenting below line as app crashes when this is enabled due to missing dependencies. Uncomment whenever
+            // code coverage result is needed
+            // testCoverageEnabled true
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'commons-io:commons-io:2.6'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.google.firebase:firebase-messaging:11.8.0'
+}
